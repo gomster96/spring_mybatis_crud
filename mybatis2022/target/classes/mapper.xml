@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+	
+	<select id="selectEmps" resultType="emp">
+		select * from abw_emp
+	</select>
+	
+	<select id="selectEmpById" parameterType="int" resultType="emp">
+		select * from abw_emp where id = #{id}
+	</select>
+	<insert id="saveEmp" parameterType="emp">
+		insert into abw_emp(name,salary,designation) values(#{name},#{salary},#{designation})
+	</insert>
+	<update id="updateEmp" parameterType="emp">
+		update abw_emp set name=#{name}, salary=#{salary}, designation=#{designation} where id=#{id}
+	</update>
+	<delete id="deleteEmp" parameterType="int">
+		delete from abw_emp where id=#{id}
+	</delete>
+</mapper>
